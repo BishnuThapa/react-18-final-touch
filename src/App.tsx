@@ -6,6 +6,7 @@ import {BsCalendar2DateFill } from 'react-icons/bs'
 import Like from './Components/Like';
 import Navbar from './Components/Navbar';
 import Cart from './Components/Cart';
+import ExpandableText from './Components/ExpandableText';
 // import Message from './Message'
 
 const App = () => {
@@ -40,17 +41,17 @@ const App = () => {
   // }
 
   // SECOND EXERCISE
-  const [cart, setCart] = useState({
-    discount: 0.1,
-    items: [
-      { id: 1, title: "Product1", quantity: 5 },
-      { id: 2, title: "Product2", quantity: 15 },
-    ],
-  });
+  // const [cart, setCart] = useState({
+  //   discount: 0.1,
+  //   items: [
+  //     { id: 1, title: "Product1", quantity: 5 },
+  //     { id: 2, title: "Product2", quantity: 15 },
+  //   ],
+  // });
 
-  const handleClick = () => {
-    setCart({ ...cart, items:cart.items.map(item=>item.id===1?{...item,quantity:item.quantity+1}: item)});
-  }
+  // const handleClick = () => {
+  //   setCart({ ...cart, items:cart.items.map(item=>item.id===1?{...item,quantity:item.quantity+1}: item)});
+  // }
   return (
     <div>
       {/* <Message /> */}
@@ -80,6 +81,11 @@ const App = () => {
       <hr />
       <Navbar cartItemsCount={cartItems.length} />
       <Cart cartItems={cartItems} onClear={() => setCartItems([])} />
+      <br />
+      <hr />
+      <ExpandableText maxChars={10}> 
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit fuga quae sequi. Deserunt est autem neque eum, eaque perferendis qui laborum esse possimus, a ipsum nulla sequi minus error doloribus et eos mollitia, enim pariatur repellat excepturi! Rem delectus porro provident velit enim id animi! Iure facilis aspernatur molestias sit repudiandae adipisci qui accusamus quod deserunt, mollitia laudantium veritatis, delectus cumque possimus, molestiae est dolore nihil accusantium inventore tempora quaerat ullam ratione eius! Est, distinctio. Necessitatibus eaque quisquam minima ut consequatur perferendis velit aperiam iste, nobis natus soluta rerum illo! Molestias voluptatem itaque ipsum porro fugit aperiam vero voluptas?
+      </ExpandableText>
     </div>
   );
 }
