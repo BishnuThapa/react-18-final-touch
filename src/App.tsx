@@ -4,9 +4,12 @@ import ListGroup from './Components/ListGroup'
 import Message from './Components/Message';
 import {BsCalendar2DateFill } from 'react-icons/bs'
 import Like from './Components/Like';
+import Navbar from './Components/Navbar';
+import Cart from './Components/Cart';
 // import Message from './Message'
 
 const App = () => {
+  const [cartItems, setCartItems]=useState(['Product1','Product2'])
   const [alertVisible,setAlertVisibility]=useState(false)
   const items = ["New York", "London", "China", "Kathmadu", "Delhi"];
   const handleSelectItem = (item:string) => {
@@ -30,7 +33,11 @@ const App = () => {
       </Button>
       <br />
 
-      <Like onHeartClick={()=> console.log('Clicked')} />
+      <Like onHeartClick={() => console.log('Clicked')} />
+      <br />
+      <hr />
+      <Navbar cartItemsCount={cartItems.length} />
+      <Cart cartItems={cartItems} onClear={()=>setCartItems([])} />
     </div>
   )
 }
